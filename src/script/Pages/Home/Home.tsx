@@ -6,7 +6,6 @@ import Header from "../../Layout/Header/Header";
 
 export default function Home() {
     const {data, isLoading, isError} = ApiRequeset()
-    console.log(data)
 
     if(isError){
         return(

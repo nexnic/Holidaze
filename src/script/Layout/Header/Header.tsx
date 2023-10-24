@@ -1,5 +1,5 @@
 interface Idata {
-    data: []
+    data: string[]
 } 
 
 export default function Header({data}: Idata) {
