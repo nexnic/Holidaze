@@ -1,13 +1,12 @@
-import { useState } from "react"
 
 import Loading from "../../Layout/Loading/Loading"
 import Error from "../../Layout/Error/Error"
+import { ApiRequeset } from "../../Components/API/ApiRequeset";
+import Header from "../../Layout/Header/Header";
 
 export default function Home() {
-    const [isLoading, SetIsLoading] = useState(true)
-    const [isError, SetIsError] = useState(true)
-
-    
+    const {data, isLoading, isError} = ApiRequeset()
+    console.log(data)
 
     if(isError){
         return(
@@ -21,6 +20,8 @@ export default function Home() {
         )
     } 
     return(
-        <h1>test</h1>
+        <>
+            <Header data={data}/>
+        </>
     )
 }
