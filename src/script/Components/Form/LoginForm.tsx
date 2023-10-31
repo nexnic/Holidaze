@@ -4,6 +4,7 @@
     // Yup
         import { yupResolver } from "@hookform/resolvers/yup";
         import * as yup from "yup";
+        import Save from "../../Storage/Save";
 
 // Type 
     type FormValues = {
@@ -49,6 +50,8 @@ export default function LoginForm(){
     const onSubmit = async (data:IData) => {
         const {email, Password:password} = data
         const user = {email, password}
+        const LcNameToken = 'accessToken'
+        const LcNameUser = 'userData'
        try {
             const fetchReq = await fetch('https://api.noroff.dev/api/v1/holidaze/auth/login', {
                 method:'POST',
@@ -58,7 +61,12 @@ export default function LoginForm(){
                 body:JSON.stringify(user)
             })
             const dataRep = await fetchReq.json()
-            console.log(dataRep)
+            if(fetchReq.status === 200) {
+                const {name, email , avatar, venueManger, accessToken} = dataRep
+                Save(LcNameToken ,accessToken)
+                const userInfo = {name, email, avatar, venueManger}
+                Save(LcNameUser ,userInfo)
+            }
        } catch (error) {
             console.log(error)
        }
