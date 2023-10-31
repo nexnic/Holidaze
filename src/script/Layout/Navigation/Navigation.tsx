@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import LoginMenu from './Components/LogiMenu'
 
 export default function Navigation() {
 
@@ -27,6 +28,7 @@ export default function Navigation() {
                 </div>
             </div>
         </nav>
+        <LoginMenu></LoginMenu>
     </>
     )
 }
