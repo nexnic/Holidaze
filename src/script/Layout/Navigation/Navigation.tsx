@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom";
 import LoginMenu from './Components/LogiMenu'
+import { useState } from "react";
 
 export default function Navigation() {
+    const [loginMenu, setLoginMenu] = useState(false)
+
+    function handleClickLogin(){
+        setLoginMenu(loginMenu => !loginMenu)
+        console.log(loginMenu)
+    }
 
     return (
         <><nav className="navbar navbar-expand-lg bg-black pl-3 pr-3">
@@ -22,13 +29,13 @@ export default function Navigation() {
                             <Link to="/register">Register user</Link>
                         </li>
                         <li className="nav-item">
-                            <button className="btn btn-primary" data-bs-target="#dropDownmenu-login" aria-controls="dropDownmenu-login" aria-expanded="false" aria-label="Toggle navigation">Login</button>
+                            <button className="btn btn-primary" onClick={handleClickLogin}>Login</button>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <LoginMenu></LoginMenu>
+        {loginMenu ? <LoginMenu></LoginMenu>: ''}
     </>
     )
 }
