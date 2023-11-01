@@ -66,6 +66,7 @@ export default function LoginForm(){
                 Save(LcNameToken ,accessToken)
                 const userInfo = {name, email, avatar, venueManger}
                 Save(LcNameUser ,userInfo)
+                window.location.reload();
             }
        } catch (error) {
             console.log(error)
