@@ -1,17 +1,16 @@
-import Load from "../../Storage/Load";
-import { useNavigate } from 'react-router-dom';
+//import Load from "../../Storage/Load";
+import { useParams} from 'react-router-dom';
+
 
 
 
 
 
 export default function ProfileConfig () {
-    const IsLogin = Load('Etook')
-    const navigate = useNavigate();
-
-    if(!IsLogin) {
-        navigate(`/`)
-    }
+    //const IsLogin = Load('accessToken')
+    //const navigate = useNavigate();
+    const routeParams = useParams()
+    console.log(routeParams)
 
     return (
         <div></div>
