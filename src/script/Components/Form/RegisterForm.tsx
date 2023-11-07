@@ -54,6 +54,7 @@ export default function RegisterForm () {
             Password: "",
             Avatar:"",
         },
+    // @ts-expect-error: TODO
     resolver: yupResolver(schema),
     })
 
