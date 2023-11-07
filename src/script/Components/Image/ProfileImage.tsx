@@ -1,6 +1,7 @@
 import Load from "../../Storage/Load";
 
 export default function ProfileImage (){
+    // @ts-expect-error: TODO
     const GetProfileImage = Load('userData')
         const {avatar } = GetProfileImage
         if(avatar) return avatar

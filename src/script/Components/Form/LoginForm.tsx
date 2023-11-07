@@ -63,8 +63,10 @@ export default function LoginForm(){
             const dataRep = await fetchReq.json()
             if(fetchReq.status === 200) {
                 const {name, email , avatar, venueManger, accessToken} = dataRep
+                // @ts-expect-error: TODO
                 Save(LcNameToken ,accessToken)
                 const userInfo = {name, email, avatar, venueManger}
+                // @ts-expect-error: TODO
                 Save(LcNameUser ,userInfo)
                 window.location.reload();
             }
